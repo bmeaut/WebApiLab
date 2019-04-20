@@ -46,8 +46,7 @@ namespace WebApiLabor.Api
                         ctx.Mapper.Map<Dtos.Order>(po.Order)).ToList()).ReverseMap();                    
                 cfg.CreateMap<Entities.Order, Dtos.Order>().ReverseMap();                    
                 cfg.CreateMap<Entities.Category, Dtos.Category>().ReverseMap();
-            }
-            );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
