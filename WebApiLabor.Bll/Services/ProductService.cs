@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebApiLabor.Bll.Exceptions;
 using WebApiLabor.DAL;
@@ -54,6 +55,23 @@ namespace WebApiLabor.Bll.Services
             try
             {
                 _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new EntityNotFoundException("Nem található a termék");
+            }
+        }
+
+
+        public async Task UpdateProductAsync(int productId, Product updatedProduct)
+        {
+            updatedProduct.Id = productId;
+            var entry = _context.Attach(updatedProduct);
+            entry.State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {

@@ -91,11 +91,20 @@ namespace WebApiLabor.Api.Controllers
         //}
 
         // PUT: api/Products/5
+        //[HttpPut("{id}")]
+        //public async IActionResult Put(int id, [FromBody] Product product)
+        //{
+        //    _productService.
+        //        UpdateProduct(id, _mapper.Map<Entities.Product>(product));
+        //    return NoContent();
+        //}
+
+        // PUT: api/Products/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Product product)
+        public async Task<IActionResult> Put(int id, [FromBody] Product product)
         {
-            _productService.
-                UpdateProduct(id, _mapper.Map<Entities.Product>(product));
+            await _productService.
+                UpdateProductAsync(id, _mapper.Map<Entities.Product>(product));
             return NoContent();
         }
 
