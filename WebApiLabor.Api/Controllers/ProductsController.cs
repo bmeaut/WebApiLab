@@ -55,6 +55,12 @@ namespace WebApiLabor.Api.Controllers
         //}
 
         // GET: api/Products/5
+        /// <summary>
+        /// Get a specific product with the given identifier
+        /// </summary>
+        /// <param name="id">Product's identifier</param>
+        /// <returns>Returns a specific product with the given identifier</returns>
+        /// <response code="200">Returns a specific product with the given identifier</response>
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<Product> Get(int id)
         {

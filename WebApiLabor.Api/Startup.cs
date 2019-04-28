@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using WebApiLabor.Bll.Services;
 using WebApiLabor.DAL;
 
@@ -29,7 +30,9 @@ namespace WebApiLabor.Api
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(
                     json => json.SerializerSettings.ReferenceLoopHandling 
-                            = ReferenceLoopHandling.Ignore);
+                            = ReferenceLoopHandling.Ignore)
+                .AddJsonOptions(options =>
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter()));
 
             services.AddDbContext<NorthwindContext>(o =>
                 o.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])
