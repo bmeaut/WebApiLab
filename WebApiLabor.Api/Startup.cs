@@ -47,6 +47,8 @@ namespace WebApiLabor.Api
                 cfg.CreateMap<Entities.Order, Dtos.Order>().ReverseMap();                    
                 cfg.CreateMap<Entities.Category, Dtos.Category>().ReverseMap();
             });
+
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +58,9 @@ namespace WebApiLabor.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUi3();
 
             app.UseMvc();
         }
