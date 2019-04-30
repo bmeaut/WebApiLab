@@ -6,7 +6,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiLabor.Bll.Services;
-using WebApiLabor.Api.Dtos; //volt: using WebApiLabor.Entities;
+using WebApiLabor.Api.Dtos;
+using WebApiLabor.Bll.Exceptions;
+
+//volt: using WebApiLabor.Entities;
 
 namespace WebApiLabor.Api.Controllers
 {
@@ -54,6 +57,14 @@ namespace WebApiLabor.Api.Controllers
         //    return _productService.GetProduct(id);
         //}
 
+        // GET: api/Products/5        
+        //[HttpGet("{id}", Name = "Get")]
+        //public ActionResult<Product> Get(int id)
+        //{
+        //    return _mapper.Map<Product>(_productService.GetProduct(id));
+        //}
+
+
         // GET: api/Products/5
         /// <summary>
         /// Get a specific product with the given identifier
@@ -64,7 +75,14 @@ namespace WebApiLabor.Api.Controllers
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<Product> Get(int id)
         {
-            return _mapper.Map<Product>(_productService.GetProduct(id));
+            try
+            {
+                return _mapper.Map<Product>(_productService.GetProduct(id));
+            }
+            catch (EntityNotFoundException)
+            {
+                return NotFound();
+            }
         }
 
         // POST: api/Products
