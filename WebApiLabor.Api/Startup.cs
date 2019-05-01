@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using AutoMapper;
+using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -9,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using WebApiLabor.Bll.Exceptions;
 using WebApiLabor.Bll.Services;
 using WebApiLabor.DAL;
 
@@ -16,9 +20,12 @@ namespace WebApiLabor.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IHostingEnvironment _env;
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +33,16 @@ namespace WebApiLabor.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddProblemDetails(options =>
+            {
+                options.IncludeExceptionDetails = ctx =>false;
+                options.Map<EntityNotFoundException>(ex => 
+                    new ProblemDetails{
+                        Title = "Invalid ID",
+                        Status = StatusCodes.Status404NotFound
+                    });
+            });
+
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(
@@ -56,16 +73,16 @@ namespace WebApiLabor.Api
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            
-            if (env.IsDevelopment())
+        {            
+            /*if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+            }*/
             
             app.UseSwagger();
             app.UseSwaggerUi3();
 
+            app.UseProblemDetails();
             app.UseMvc();
         }
     }

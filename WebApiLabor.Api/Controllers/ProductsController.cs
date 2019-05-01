@@ -45,7 +45,7 @@ namespace WebApiLabor.Api.Controllers
 
         [HttpGet]
         public ActionResult<IEnumerable<Product>> Get()
-        {
+        {                     
             return _mapper.Map<List<Product>>(_productService.GetProducts())
                 .ToList();
         }
@@ -65,6 +65,37 @@ namespace WebApiLabor.Api.Controllers
         //}
 
 
+        //[HttpGet("{id}", Name = "Get")]
+        //public ActionResult<Product> Get(int id)
+        //{
+        //    try
+        //    {
+        //        return _mapper.Map<Product>(_productService.GetProduct(id));
+        //    }
+        //    catch (EntityNotFoundException)
+        //    {
+        //        return NotFound();
+        //    }
+        //}
+
+        //[HttpGet("{id}", Name = "Get")]
+        //public ActionResult<Product> Get(int id)
+        //{
+        //    try
+        //    {
+        //        return _mapper.Map<Product>(_productService.GetProduct(id));
+        //    }
+        //    catch (EntityNotFoundException)
+        //    {
+        //        ProblemDetails details = new ProblemDetails
+        //        {
+        //            Title = "Invalid ID",
+        //            Status = StatusCodes.Status404NotFound
+        //        };
+        //        return NotFound(details);
+        //    }
+        //}
+
         // GET: api/Products/5
         /// <summary>
         /// Get a specific product with the given identifier
@@ -74,15 +105,9 @@ namespace WebApiLabor.Api.Controllers
         /// <response code="200">Returns a specific product with the given identifier</response>
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<Product> Get(int id)
-        {
-            try
-            {
-                return _mapper.Map<Product>(_productService.GetProduct(id));
-            }
-            catch (EntityNotFoundException)
-            {
-                return NotFound();
-            }
+        {            
+            if(id==0) throw new ArgumentException();
+            return _mapper.Map<Product>(_productService.GetProduct(id));            
         }
 
         // POST: api/Products
