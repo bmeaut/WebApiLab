@@ -85,6 +85,11 @@ namespace WebApiLabor.DAL
                 .Property(e => e.ShipmentRegion)
                 .HasConversion(converter);
 
+            modelBuilder.Entity<Product>()
+                .Property(p => p.RowVersion)
+                .ValueGeneratedOnAddOrUpdate()
+                .IsConcurrencyToken();
+
 
         }
 

@@ -13,6 +13,8 @@ namespace WebApiLabor.Entities
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        public byte[] RowVersion { get; set; }
+
         public ICollection<ProductOrder> ProductOrders { get; } = new List<ProductOrder>();
     }
 }

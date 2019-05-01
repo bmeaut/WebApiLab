@@ -20,5 +20,8 @@ namespace WebApiLabor.Api.Dtos
         public Category Category { get; set; }
 
         public List<Order> Orders { get; set; }
+
+        [Required(ErrorMessage = "RowVersion is required")]
+        public byte[] RowVersion { get; set; }
     }
 }

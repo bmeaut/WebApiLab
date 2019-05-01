@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Hellang.Middleware.ProblemDetails;
@@ -20,12 +21,10 @@ namespace WebApiLabor.Api
 {
     public class Startup
     {
-        private IHostingEnvironment _env;
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -36,11 +35,14 @@ namespace WebApiLabor.Api
             services.AddProblemDetails(options =>
             {
                 options.IncludeExceptionDetails = ctx =>false;
-                options.Map<EntityNotFoundException>(ex => 
-                    new ProblemDetails{
+                options.Map<EntityNotFoundException>(ex =>
+                    new ProblemDetails
+                    {
                         Title = "Invalid ID",
                         Status = StatusCodes.Status404NotFound
                     });
+                options.Map<DbUpdateConcurrencyException>(
+                    ex => new ConcurrencyProblemDetails(ex));
             });
 
             services.AddMvc()
@@ -70,6 +72,8 @@ namespace WebApiLabor.Api
 
             services.AddSwaggerDocument();
         }
+
+   
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
