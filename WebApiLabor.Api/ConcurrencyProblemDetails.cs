@@ -29,7 +29,6 @@ namespace WebApiLabor.Api
             var currentValues = props.ToDictionary(
                 p => p.Metadata.Name, p => p.CurrentValue);
 
-            //with DB values
             entry.Reload();
 
             foreach (var property in props)
