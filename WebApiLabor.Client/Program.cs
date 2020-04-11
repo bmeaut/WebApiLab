@@ -14,9 +14,11 @@ namespace WebApiLabor.Client
         {
             Console.Write("ProductId: ");
             var id = Console.ReadLine();
-            //await GetProductAsync(Int32.Parse(id));
+            await GetProductAsync(Int32.Parse(id));
             var p = await GetProduct2Async(int.Parse(id));
             Console.WriteLine(p.Name);
+            //Product prInserted=await InsertProductAsync(new Product { Name = "Swagger Prod", CategoryId = 1, UnitPrice = 150, ShipmentRegion = ShipmentRegion.EU, RowVersion = new byte[0]});
+            //Console.WriteLine(prInserted);
             Console.ReadKey();
         }
 
@@ -41,6 +43,15 @@ namespace WebApiLabor.Client
             {
                 ProductsClient client= new ProductsClient(httpClient);
                 return await client.GetAsync(id);                
+            }
+        }
+
+        public static async Task<Product> InsertProductAsync(Product pr)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                ProductsClient client = new ProductsClient(httpClient);
+                return await client.PostAsync(pr);
             }
         }
 

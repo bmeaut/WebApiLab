@@ -120,6 +120,7 @@ namespace WebApiLabor.Api.Controllers
 
         // POST: api/Products
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<Product> Post([FromBody] Product product)
         {
             var created = _productService
@@ -150,6 +151,7 @@ namespace WebApiLabor.Api.Controllers
 
         // PUT: api/Products/5
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Put(int id, [FromBody] Product product)
         {
             await _productService.
@@ -159,6 +161,7 @@ namespace WebApiLabor.Api.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Delete(int id)
         {
             _productService.DeleteProduct(id);
