@@ -3,7 +3,7 @@ using WebApiLab.Entities;
 
 namespace WebApiLab.BLL
 {
-    interface IProductService
+    public interface IProductService
     {
         Product GetProduct(int productId);
         IEnumerable<Product> GetProducts();
