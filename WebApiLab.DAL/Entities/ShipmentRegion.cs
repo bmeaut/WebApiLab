@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebApiLab.Entities
+namespace WebApiLab.DAL.Entities
 {
     [Flags]
     public enum ShipmentRegion
