@@ -1,48 +1,63 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
+using Microsoft.EntityFrameworkCore;
+
+using WebApiLab.Bll.Dtos;
+using WebApiLab.Bll.Exceptions;
 using WebApiLab.Bll.Interfaces;
 using WebApiLab.Dal;
-using WebApiLab.Dal.Entities;
 
 namespace WebApiLab.Bll.Services;
 
 public class ProductService : IProductService
 {
     private readonly AppDbContext _context;
+    private readonly IMapper _mapper;
 
-    public ProductService(AppDbContext context)
+    public ProductService(AppDbContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
     public Product GetProduct(int productId)
     {
-        throw new NotImplementedException();
+        return _context.Products
+            .ProjectTo<Product>(_mapper.ConfigurationProvider)
+            .SingleOrDefault(p => p.Id == productId)
+            ?? throw new EntityNotFoundException("Nem található a termék");
     }
 
     public IEnumerable<Product> GetProducts()
     {
         var products = _context.Products
-            .Include(p => p.Category)
-            .Include(p => p.ProductOrders)
-                .ThenInclude(po => po.Order)
-            .ToList();
+            .ProjectTo<Product>(_mapper.ConfigurationProvider)
+            .AsEnumerable();
 
         return products;
     }
 
     public Product InsertProduct(Product newProduct)
     {
-        throw new NotImplementedException();
+        var efProduct = _mapper.Map<Dal.Entities.Product>(newProduct);
+        _context.Products.Add(efProduct);
+        _context.SaveChanges();
+        return GetProduct(efProduct.Id);
     }
 
     public void UpdateProduct(int productId, Product updatedProduct)
     {
-        throw new NotImplementedException();
+        var efProduct = _mapper.Map<Dal.Entities.Product>(updatedProduct);
+        efProduct.Id = productId;
+        var entry = _context.Attach(efProduct);
+        entry.State = EntityState.Modified;
+        _context.SaveChanges();
     }
 
     public void DeleteProduct(int productId)
     {
-        throw new NotImplementedException();
+        _context.Products.Remove(new Dal.Entities.Product { Id = productId });
+        _context.SaveChanges();
     }
 }

@@ -1,4 +1,4 @@
-﻿using WebApiLab.Dal.Entities;
+﻿using WebApiLab.Bll.Dtos;
 
 namespace WebApiLab.Bll.Interfaces;
 

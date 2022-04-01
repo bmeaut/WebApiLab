@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-using System.Text.Json.Serialization;
-
+using WebApiLab.Bll.Dtos;
 using WebApiLab.Bll.Interfaces;
 using WebApiLab.Bll.Services;
 using WebApiLab.Dal;
@@ -10,8 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers()
-    .AddJsonOptions(o => o.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+builder.Services.AddControllers();
+//.AddJsonOptions(o => o.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+builder.Services.AddAutoMapper(typeof(WebApiProfile));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

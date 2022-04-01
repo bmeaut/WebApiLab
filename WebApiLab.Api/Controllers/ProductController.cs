@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 using WebApiLab.Bll.Interfaces;
-using WebApiLab.Dal.Entities;
+using WebApiLab.Bll.Dtos;
 
 namespace WebApiLab.Api.Controllers;
 
@@ -18,33 +18,39 @@ public class ProductController : ControllerBase
 
     // GET: api/<ProductController>
     [HttpGet]
-    public IEnumerable<Product> Get()
+    public ActionResult<IEnumerable<Product>> Get()
     {
-        return _productService.GetProducts();
+        return _productService.GetProducts().ToList();
     }
 
     // GET api/<ProductController>/5
     [HttpGet("{id}")]
-    public string Get(int id)
+    public ActionResult<Product> Get(int id)
     {
-        return "value";
+        return _productService.GetProduct(id);
     }
 
     // POST api/<ProductController>
     [HttpPost]
-    public void Post([FromBody] string value)
+    public ActionResult<Product> Post([FromBody] Product product)
     {
+        var created = _productService.InsertProduct(product);
+        return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
     }
 
     // PUT api/<ProductController>/5
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    public ActionResult Put(int id, [FromBody] Product value)
     {
+        _productService.UpdateProduct(id, value);
+        return NoContent();
     }
 
     // DELETE api/<ProductController>/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public ActionResult Delete(int id)
     {
+        _productService.DeleteProduct(id);
+        return NoContent();
     }
 }
