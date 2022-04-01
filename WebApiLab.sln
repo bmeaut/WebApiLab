@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiLab.Dal", "WebApiLab.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiLab.Bll", "WebApiLab.BLL\WebApiLab.Bll.csproj", "{8F376D98-9FF5-4241-8FCF-2F2B50CBFB66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiLab.Api", "WebApiLab.Api\WebApiLab.Api.csproj", "{0965DECC-8012-46A5-9224-383438269608}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8F376D98-9FF5-4241-8FCF-2F2B50CBFB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F376D98-9FF5-4241-8FCF-2F2B50CBFB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F376D98-9FF5-4241-8FCF-2F2B50CBFB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0965DECC-8012-46A5-9224-383438269608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0965DECC-8012-46A5-9224-383438269608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0965DECC-8012-46A5-9224-383438269608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0965DECC-8012-46A5-9224-383438269608}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
