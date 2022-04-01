@@ -46,7 +46,7 @@ public class ProductService : IProductService
         return GetProduct(efProduct.Id);
     }
 
-    public void UpdateProduct(int productId, Product updatedProduct)
+    public async Task UpdateProductAsync(int productId, Product updatedProduct)
     {
         var efProduct = _mapper.Map<Dal.Entities.Product>(updatedProduct);
         efProduct.Id = productId;
@@ -54,11 +54,11 @@ public class ProductService : IProductService
         entry.State = EntityState.Modified;
         try
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (_context.Products.SingleOrDefault(p => p.Id == productId) == null)
+            if (await _context.Products.SingleOrDefaultAsync(p => p.Id == productId) == null)
                 throw new EntityNotFoundException("Nem található a termék");
             else
                 throw;

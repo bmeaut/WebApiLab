@@ -41,9 +41,9 @@ public class ProductController : ControllerBase
 
     // PUT api/<ProductController>/5
     [HttpPut("{id}")]
-    public ActionResult Put(int id, [FromBody] Product value)
+    public async Task<ActionResult> PutAsync(int id, [FromBody] Product value)
     {
-        _productService.UpdateProduct(id, value);
+        await _productService.UpdateProductAsync(id, value);
         return NoContent();
     }
 
