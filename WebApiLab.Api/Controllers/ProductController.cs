@@ -2,6 +2,7 @@
 
 using WebApiLab.Bll.Interfaces;
 using WebApiLab.Bll.Dtos;
+using WebApiLab.Bll.Exceptions;
 
 namespace WebApiLab.Api.Controllers;
 
@@ -27,7 +28,19 @@ public class ProductController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Product> Get(int id)
     {
-        return _productService.GetProduct(id);
+        try
+        {
+            return _productService.GetProduct(id);
+        }
+        catch (EntityNotFoundException)
+        {
+            return NotFound(new ProblemDetails
+            {
+                Title = "Invalid ID",
+                Status = StatusCodes.Status404NotFound,
+                Detail = $"No product with ID {id}"
+            });
+        }
     }
 
     // POST api/<ProductController>
