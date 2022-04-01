@@ -28,19 +28,7 @@ public class ProductController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Product> Get(int id)
     {
-        try
-        {
-            return _productService.GetProduct(id);
-        }
-        catch (EntityNotFoundException)
-        {
-            return NotFound(new ProblemDetails
-            {
-                Title = "Invalid ID",
-                Status = StatusCodes.Status404NotFound,
-                Detail = $"No product with ID {id}"
-            });
-        }
+        return _productService.GetProduct(id);
     }
 
     // POST api/<ProductController>
