@@ -52,12 +52,32 @@ public class ProductService : IProductService
         efProduct.Id = productId;
         var entry = _context.Attach(efProduct);
         entry.State = EntityState.Modified;
-        _context.SaveChanges();
+        try
+        {
+            _context.SaveChanges();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (_context.Products.SingleOrDefault(p => p.Id == productId) == null)
+                throw new EntityNotFoundException("Nem található a termék");
+            else
+                throw;
+        }
     }
 
     public void DeleteProduct(int productId)
     {
         _context.Products.Remove(new Dal.Entities.Product { Id = productId });
-        _context.SaveChanges();
+        try
+        {
+            _context.SaveChanges();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (_context.Products.SingleOrDefault(p => p.Id == productId) == null)
+                throw new EntityNotFoundException("Nem található a termék");
+            else
+                throw;
+        }
     }
 }

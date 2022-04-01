@@ -27,7 +27,14 @@ builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddProblemDetails(options =>
 {
     options.IncludeExceptionDetails = (ctx, ex) => false;
-    options.MapToStatusCode<EntityNotFoundException>(StatusCodes.Status404NotFound);
+    options.Map<EntityNotFoundException>(
+        (ctx, ex) =>
+        {
+            var pd = StatusCodeProblemDetails.Create(StatusCodes.Status404NotFound);
+            pd.Title = ex.Message;
+            return pd;
+        }
+    );
 });
 
 var app = builder.Build();
