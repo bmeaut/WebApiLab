@@ -21,29 +21,29 @@ public class ProductService : IProductService
         _mapper = mapper;
     }
 
-    public Product GetProduct(int productId)
+    public async Task<Product> GetProductAsync(int productId)
     {
-        return _context.Products
+        return await _context.Products
             .ProjectTo<Product>(_mapper.ConfigurationProvider)
-            .SingleOrDefault(p => p.Id == productId)
+            .SingleOrDefaultAsync(p => p.Id == productId)
             ?? throw new EntityNotFoundException("Nem található a termék");
     }
 
-    public IEnumerable<Product> GetProducts()
+    public async Task<IEnumerable<Product>> GetProductsAsync()
     {
-        var products = _context.Products
+        var products = await _context.Products
             .ProjectTo<Product>(_mapper.ConfigurationProvider)
-            .AsEnumerable();
+            .ToListAsync();
 
         return products;
     }
 
-    public Product InsertProduct(Product newProduct)
+    public async Task<Product> InsertProductAsync(Product newProduct)
     {
         var efProduct = _mapper.Map<Dal.Entities.Product>(newProduct);
         _context.Products.Add(efProduct);
-        _context.SaveChanges();
-        return GetProduct(efProduct.Id);
+        await _context.SaveChangesAsync();
+        return await GetProductAsync(efProduct.Id);
     }
 
     public async Task UpdateProductAsync(int productId, Product updatedProduct)
@@ -65,16 +65,16 @@ public class ProductService : IProductService
         }
     }
 
-    public void DeleteProduct(int productId)
+    public async Task DeleteProductAsync(int productId)
     {
         _context.Products.Remove(new Dal.Entities.Product { Id = productId });
         try
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (_context.Products.SingleOrDefault(p => p.Id == productId) == null)
+            if (await _context.Products.SingleOrDefaultAsync(p => p.Id == productId) == null)
                 throw new EntityNotFoundException("Nem található a termék");
             else
                 throw;

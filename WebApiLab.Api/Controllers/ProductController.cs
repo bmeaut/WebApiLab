@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-using WebApiLab.Bll.Interfaces;
 using WebApiLab.Bll.Dtos;
-using WebApiLab.Bll.Exceptions;
+using WebApiLab.Bll.Interfaces;
 
 namespace WebApiLab.Api.Controllers;
 
@@ -19,24 +18,24 @@ public class ProductController : ControllerBase
 
     // GET: api/<ProductController>
     [HttpGet]
-    public ActionResult<IEnumerable<Product>> Get()
+    public async Task<ActionResult<IEnumerable<Product>>> GetAsync()
     {
-        return _productService.GetProducts().ToList();
+        return (await _productService.GetProductsAsync()).ToList();
     }
 
     // GET api/<ProductController>/5
     [HttpGet("{id}")]
-    public ActionResult<Product> Get(int id)
+    public async Task<ActionResult<Product>> GetAsync(int id)
     {
-        return _productService.GetProduct(id);
+        return await _productService.GetProductAsync(id);
     }
 
     // POST api/<ProductController>
     [HttpPost]
-    public ActionResult<Product> Post([FromBody] Product product)
+    public async Task<ActionResult<Product>> PostAsync([FromBody] Product product)
     {
-        var created = _productService.InsertProduct(product);
-        return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
+        var created = await _productService.InsertProductAsync(product);
+        return CreatedAtAction(nameof(GetAsync), new { id = created.Id }, created);
     }
 
     // PUT api/<ProductController>/5
@@ -49,9 +48,9 @@ public class ProductController : ControllerBase
 
     // DELETE api/<ProductController>/5
     [HttpDelete("{id}")]
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> DeleteAsync(int id)
     {
-        _productService.DeleteProduct(id);
+        await _productService.DeleteProductAsync(id);
         return NoContent();
     }
 }
