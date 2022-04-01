@@ -1,19 +1,18 @@
-﻿using System;
+﻿namespace WebApiLab.Bll.Exceptions;
 
-namespace WebApiLab.BLL
+public class EntityNotFoundException : Exception
 {
-    public class EntityNotFoundException : Exception
+    public EntityNotFoundException()
     {
-        public EntityNotFoundException()
-        {
-        }
+    }
 
-        public EntityNotFoundException(string message) : base(message)
-        {
-        }
+    public EntityNotFoundException(string message)
+        : base(message)
+    {
+    }
 
-        public EntityNotFoundException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
+    public EntityNotFoundException(string message, Exception innerException)
+        : base(message, innerException)
+    {
     }
 }
