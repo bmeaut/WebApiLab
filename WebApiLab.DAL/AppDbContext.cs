@@ -24,25 +24,23 @@ public class AppDbContext : DbContext
             .IsRequired();
 
         modelBuilder.Entity<Category>().HasData(
-            new Category { Id = 1, Name = "Ital" }
+            new Category("Ital") { Id = 1 }
         );
 
         modelBuilder.Entity<Product>().HasData(
-            new Product { Id = 1, Name = "Sör", UnitPrice = 50, CategoryId = 1, ShipmentRegion = ShipmentRegion.Asia },
-            new Product { Id = 2, Name = "Bor", UnitPrice = 550, CategoryId = 1 },
-            new Product { Id = 3, Name = "Tej", UnitPrice = 260, CategoryId = 1 },
-            new Product
+            new Product("Sör") { Id = 1, UnitPrice = 50, CategoryId = 1, ShipmentRegion = ShipmentRegion.Asia },
+            new Product("Bor") { Id = 2, UnitPrice = 550, CategoryId = 1 },
+            new Product("Tej") { Id = 3, UnitPrice = 260, CategoryId = 1 },
+            new Product("Whiskey")
             {
                 Id = 4,
-                Name = "Whiskey",
                 UnitPrice = 960,
                 CategoryId = 1,
                 ShipmentRegion = ShipmentRegion.Australia
             },
-            new Product
+            new Product("Rum")
             {
                 Id = 5,
-                Name = "Rum",
                 UnitPrice = 960,
                 CategoryId = 1,
                 ShipmentRegion = ShipmentRegion.Eu | ShipmentRegion.NorthAmerica

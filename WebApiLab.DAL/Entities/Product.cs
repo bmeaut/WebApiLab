@@ -7,7 +7,7 @@ public class Product
     public int Id { get; set; }
 
     [Column("ProductName")]
-    public string Name { get; set; } = null!;
+    public string Name { get; set; }
 
     public int UnitPrice { get; set; }
 
@@ -19,5 +19,10 @@ public class Product
     public ICollection<Order> Orders { get; } = new List<Order>();
 
     public ShipmentRegion ShipmentRegion { get; set; }
+
+    public Product(string name)
+    {
+        Name = name;
+    }
 }
 
