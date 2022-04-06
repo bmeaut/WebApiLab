@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using WebApiLab.DAL.Entities;
+﻿using WebApiLab.Dal.Entities;
 
-namespace WebApiLab.BLL
+namespace WebApiLab.Bll.Interfaces;
+
+public interface IProductService
 {
-    public interface IProductService
-    {
-        Product GetProduct(int productId);
-        IEnumerable<Product> GetProducts();
-        Product InsertProduct(Product newProduct);
-        void UpdateProduct(int productId, Product updatedProduct);
-        void DeleteProduct(int productId);
-    }
+    public Product GetProduct(int productId);
+    public IEnumerable<Product> GetProducts();
+    public Product InsertProduct(Product newProduct);
+    public void UpdateProduct(int productId, Product updatedProduct);
+    public void DeleteProduct(int productId);
 }
