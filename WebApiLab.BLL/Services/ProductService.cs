@@ -67,7 +67,7 @@ public class ProductService : IProductService
 
     public async Task DeleteProductAsync(int productId)
     {
-        _context.Products.Remove(new Dal.Entities.Product { Id = productId });
+        _context.Products.Remove(new Dal.Entities.Product("dummy") { Id = productId });
         try
         {
             await _context.SaveChangesAsync();
