@@ -23,7 +23,12 @@ public class ProductController : ControllerBase
         return (await _productService.GetProductsAsync()).ToList();
     }
 
-    // GET api/<ProductController>/5
+    /// <summary>
+    /// Get a specific product with the given identifier
+    /// </summary>
+    /// <param name="id">Product's identifier</param>
+    /// <returns>Returns a specific product with the given identifier</returns>
+    /// <response code="200">Listing successful</response>
     [HttpGet("{id}")]
     public async Task<ActionResult<Product>> GetAsync(int id)
     {
