@@ -58,7 +58,7 @@ public class ProductService : IProductService
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (await _context.Products.SingleOrDefaultAsync(p => p.Id == productId) == null)
+            if (!await _context.Products.AnyAsync(p => p.Id == productId))
                 throw new EntityNotFoundException("Nem található a termék");
             else
                 throw;
@@ -74,7 +74,7 @@ public class ProductService : IProductService
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (await _context.Products.SingleOrDefaultAsync(p => p.Id == productId) == null)
+            if (!await _context.Products.AnyAsync(p => p.Id == productId))
                 throw new EntityNotFoundException("Nem található a termék");
             else
                 throw;
