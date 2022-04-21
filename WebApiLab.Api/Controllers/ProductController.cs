@@ -35,8 +35,14 @@ public class ProductController : ControllerBase
         return await _productService.GetProductAsync(id);
     }
 
-    // POST api/<ProductController>
+    /// <summary>
+    /// Creates a new product
+    /// </summary>
+    /// <param name="product">The product to create</param>
+    /// <returns>Returns the product inserted</returns>
+    /// <response code="201">Insert successful</response>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<ActionResult<Product>> PostAsync([FromBody] Product product)
     {
         var created = await _productService.InsertProductAsync(product);
@@ -45,6 +51,7 @@ public class ProductController : ControllerBase
 
     // PUT api/<ProductController>/5
     [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<ActionResult> PutAsync(int id, [FromBody] Product value)
     {
         await _productService.UpdateProductAsync(id, value);
@@ -53,6 +60,7 @@ public class ProductController : ControllerBase
 
     // DELETE api/<ProductController>/5
     [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<ActionResult> DeleteAsync(int id)
     {
         await _productService.DeleteProductAsync(id);
