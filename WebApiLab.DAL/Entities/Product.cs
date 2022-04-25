@@ -21,6 +21,8 @@ public class Product
 
     public ShipmentRegion ShipmentRegion { get; set; }
 
+    public byte[] RowVersion { get; set; } = null!;
+
     public Product(string name)
     {
         Name = name;

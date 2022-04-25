@@ -45,6 +45,10 @@ public class AppDbContext : DbContext
             }
         );
 
+        modelBuilder.Entity<Product>()
+            .Property(p => p.RowVersion)
+            .IsRowVersion();
+
         modelBuilder.Entity<Order>().HasData(
             new Order { Id = 1, OrderDate = new DateTime(2019, 02, 01) }
         );
