@@ -20,6 +20,6 @@ namespace WebApiLab.Bll.Dtos
         public Category? Category { get; init; }
         public List<Order>? Orders { get; init; }
         [Required(ErrorMessage = "RowVersion is required")]
-        public byte[] RowVersion { get; set; }
+        public byte[] RowVersion { get; init; } = null!;
     }
 }

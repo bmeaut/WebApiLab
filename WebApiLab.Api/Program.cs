@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 using System.Text.Json.Serialization;
 
+using WebApiLab.Api.ProblemDetails;
 using WebApiLab.Bll.Dtos;
 using WebApiLab.Bll.Exceptions;
 using WebApiLab.Bll.Interfaces;
@@ -39,6 +40,8 @@ builder.Services.AddProblemDetails(options =>
             return pd;
         }
     );
+    options.Map<DbUpdateConcurrencyException>(
+        ex => new ConcurrencyProblemDetails(ex));
 });
 
 var app = builder.Build();
