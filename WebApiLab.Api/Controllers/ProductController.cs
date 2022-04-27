@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using WebApiLab.Bll.Dtos;
 using WebApiLab.Bll.Interfaces;
 
@@ -18,7 +17,7 @@ public class ProductController : ControllerBase
 
     // GET: api/<ProductController>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Product>>> GetAsync()
+    public async Task<ActionResult<IEnumerable<Product>>> Get()
     {
         return (await _productService.GetProductsAsync()).ToList();
     }
@@ -30,7 +29,7 @@ public class ProductController : ControllerBase
     /// <returns>Returns a specific product with the given identifier</returns>
     /// <response code="200">Listing successful</response>
     [HttpGet("{id}")]
-    public async Task<ActionResult<Product>> GetAsync(int id)
+    public async Task<ActionResult<Product>> Get(int id)
     {
         return await _productService.GetProductAsync(id);
     }
@@ -43,16 +42,16 @@ public class ProductController : ControllerBase
     /// <response code="201">Insert successful</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public async Task<ActionResult<Product>> PostAsync([FromBody] Product product)
+    public async Task<ActionResult<Product>> Post([FromBody] Product product)
     {
         var created = await _productService.InsertProductAsync(product);
-        return CreatedAtAction(nameof(GetAsync), new { id = created.Id }, created);
+        return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
     }
 
     // PUT api/<ProductController>/5
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<ActionResult> PutAsync(int id, [FromBody] Product value)
+    public async Task<ActionResult> Put(int id, [FromBody] Product value)
     {
         await _productService.UpdateProductAsync(id, value);
         return NoContent();
@@ -61,7 +60,7 @@ public class ProductController : ControllerBase
     // DELETE api/<ProductController>/5
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<ActionResult> DeleteAsync(int id)
+    public async Task<ActionResult> Delete(int id)
     {
         await _productService.DeleteProductAsync(id);
         return NoContent();
