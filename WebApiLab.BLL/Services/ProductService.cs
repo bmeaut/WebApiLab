@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-
 using Microsoft.EntityFrameworkCore;
-
 using WebApiLab.Bll.Dtos;
 using WebApiLab.Bll.Exceptions;
 using WebApiLab.Bll.Interfaces;
