@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
 
@@ -85,3 +86,17 @@ public class AppDbContext : DbContext
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<Order> Orders => Set<Order>();
 }
+
+
+//Csak a kontroller  generálás idejére kommentezd vissza! Ne maradjon a kódban véglegesen.
+//DbContextOptions<>-t váró DbContext konstruktor szükséges!
+//Megkerülő megoldás ehhez: https://github.com/dotnet/Scaffolding/issues/1765
+//public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+//{
+//    public AppDbContext CreateDbContext(string[] args)
+//    {
+//        var builder = new DbContextOptionsBuilder<AppDbContext>();
+//        builder.UseSqlServer("dummy");
+//        return new AppDbContext(builder.Options);
+//    }
+//}
