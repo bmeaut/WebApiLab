@@ -6,16 +6,16 @@ namespace WebApiLab.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ProductController : ControllerBase
+public class ProductsController : ControllerBase
 {
     private readonly IProductService _productService;
 
-    public ProductController(IProductService productService)
+    public ProductsController(IProductService productService)
     {
         _productService = productService;
     }
 
-    // GET: api/<ProductController>
+    // GET: api/<ProductsController>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Product>>> Get()
     {
@@ -48,7 +48,7 @@ public class ProductController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
     }
 
-    // PUT api/<ProductController>/5
+    // PUT api/<ProductsController>/5
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<ActionResult> Put(int id, [FromBody] Product value)
@@ -57,7 +57,7 @@ public class ProductController : ControllerBase
         return NoContent();
     }
 
-    // DELETE api/<ProductController>/5
+    // DELETE api/<ProductsController>/5
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<ActionResult> Delete(int id)
