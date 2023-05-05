@@ -1,0 +1,1142 @@
+{
+	"info": {
+		"_postman_id": "5303b912-c729-408b-ae34-6dc2d23f5847",
+		"name": "WebAPILab2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "924244"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a specific product with the given identifier",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Products/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Listing successful",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Products/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Products",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Products Put",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Products/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Response",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Products/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Products",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Products Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Products/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Products/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Products",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Products Get All",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Products"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Eu\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Australia\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Creates a new product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Insert successful",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Update Tej",
+			"item": [
+				{
+					"name": "[U1]GetAllProductsBefore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `\r",
+									"    <table bgcolor=\"#FFFFFF\">\r",
+									"        <tr>\r",
+									"            <th>Name</th>\r",
+									"            <th>Unit price</th>\r",
+									"            <th>[Hidden]Concurrency token</th>\r",
+									"        </tr>\r",
+									"\r",
+									"        {{#each response}}\r",
+									"            <tr>\r",
+									"                <td>{{name}}</td>\r",
+									"                <td>{{unitPrice}}</td>\r",
+									"                <td>{{rowVersion}}</td>\r",
+									"            </tr>\r",
+									"        {{/each}}\r",
+									"    </table>\r",
+									"`;\r",
+									"var respJson = pm.response.json();\r",
+									"pm.visualizer.set(template, {\r",
+									"    response: respJson\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"u1_allprods\",  JSON.stringify(respJson));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Eu\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Australia\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "[U2]GetAllProductsBefore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `\r",
+									"    <table bgcolor=\"#FFFFFF\">\r",
+									"        <tr>\r",
+									"            <th>Name</th>\r",
+									"            <th>Unit price</th>\r",
+									"            <th>[Hidden]Concurrency token</th>\r",
+									"        </tr>\r",
+									"\r",
+									"        {{#each response}}\r",
+									"            <tr>\r",
+									"                <td>{{name}}</td>\r",
+									"                <td>{{unitPrice}}</td>\r",
+									"                <td>{{rowVersion}}</td>\r",
+									"            </tr>\r",
+									"        {{/each}}\r",
+									"    </table>\r",
+									"`;\r",
+									"var respJson = pm.response.json();\r",
+									"pm.visualizer.set(template, {\r",
+									"    response: respJson\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"u2_allprods\",  JSON.stringify(respJson));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Eu\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Australia\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "[U1]GetTejDetails",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var allProds= JSON.parse(pm.collectionVariables.get(\"u1_allprods\"));\r",
+									"var tejid=allProds.find(({ name }) => name.startsWith('Tej')).id;\r",
+									"pm.collectionVariables.set(\"u1_tejid\",tejid);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"u1_tej\",  pm.response.text());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{u1_tejid}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listing successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "[U2]GetTejDetails",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var allProds= JSON.parse(pm.collectionVariables.get(\"u2_allprods\"));\r",
+									"var tejid=allProds.find(({ name }) => name.startsWith('Tej')).id;\r",
+									"pm.collectionVariables.set(\"u2_tejid\",tejid);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"u2_tej\",  pm.response.text());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{u2_tejid}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listing successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "[U1]UpdateTej",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var tej= JSON.parse(pm.collectionVariables.get(\"u1_tej\"));\r",
+									"tej.unitPrice++;\r",
+									"pm.collectionVariables.set(\"u1_tej_deluxe\",JSON.stringify(tej));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{u1_tej_deluxe}}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{u1_tejid}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "[U2]UpdateTej",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var tej= JSON.parse(pm.collectionVariables.get(\"u2_tej\"));\r",
+									"tej.name='Tej ' +new Date().getTime();\r",
+									"pm.collectionVariables.set(\"u2_tej_deluxe\",JSON.stringify(tej));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{u2_tej_deluxe}}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{u2_tejid}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"rowVersion\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"unitPrice\": \"<integer>\",\n  \"shipmentRegion\": \"Australia\",\n  \"categoryId\": \"<integer>\",\n  \"category\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"orders\": [\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"orderDate\": \"<dateTime>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "[U1]GetAllProductsAfter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `\r",
+									"    <table bgcolor=\"#FFFFFF\">\r",
+									"        <tr>\r",
+									"            <th>Name</th>\r",
+									"            <th>Unit price</th>\r",
+									"            <th>[Hidden]Concurrency token</th>\r",
+									"        </tr>\r",
+									"\r",
+									"        {{#each response}}\r",
+									"            <tr>\r",
+									"                <td>{{name}}</td>\r",
+									"                <td>{{unitPrice}}</td>\r",
+									"                <td>{{rowVersion}}</td>\r",
+									"            </tr>\r",
+									"        {{/each}}\r",
+									"    </table>\r",
+									"`;\r",
+									"var respJson = pm.response.json();\r",
+									"pm.visualizer.set(template, {\r",
+									"    response: respJson\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Eu\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Australia\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "[U2]GetAllProductsAfter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `\r",
+									"    <table bgcolor=\"#FFFFFF\">\r",
+									"        <tr>\r",
+									"            <th>Name</th>\r",
+									"            <th>Unit price</th>\r",
+									"            <th>[Hidden]Concurrency token</th>\r",
+									"        </tr>\r",
+									"\r",
+									"        {{#each response}}\r",
+									"            <tr>\r",
+									"                <td>{{name}}</td>\r",
+									"                <td>{{unitPrice}}</td>\r",
+									"                <td>{{rowVersion}}</td>\r",
+									"            </tr>\r",
+									"        {{/each}}\r",
+									"    </table>\r",
+									"`;\r",
+									"var respJson = pm.response.json();\r",
+									"pm.visualizer.set(template, {\r",
+									"    response: respJson\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/Products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Eu\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"rowVersion\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"unitPrice\": \"<integer>\",\n    \"shipmentRegion\": \"Australia\",\n    \"categoryId\": \"<integer>\",\n    \"category\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"orderDate\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5184"
+		},
+		{
+			"key": "u1_allprods",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "u1_tejid",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "u1_tej",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "u1_tej_deluxe",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "u2_allprods",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "u2_tejid",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "u2_tej",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "u2_tej_deluxe",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
