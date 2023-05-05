@@ -4,8 +4,13 @@ using WebApiLab.Client.Api;
 
 Console.Write("ProductId: ");
 var id = Console.ReadLine();
-var p = await GetProduct2Async(int.Parse(id));
-Console.WriteLine($"{p.Name}: {p.UnitPrice}");
+if (id != null)
+{
+    //await GetProductAsync(int.Parse(id));
+    var p = await GetProduct2Async(int.Parse(id));
+    Console.WriteLine($"{p.Name}: {p.UnitPrice}.-");
+}
+
 Console.ReadKey();
 
 static async Task GetProductAsync(int id)
@@ -23,7 +28,9 @@ static async Task GetProductAsync(int id)
 
 static async Task<Product> GetProduct2Async(int id)
 {
-    using var httpClient = new HttpClient();
-    var client = new ProductClient("http://localhost:5184", httpClient);
+    /*Ha eltér, a portot írjuk át a szervernek megfelelően*/
+    using var httpClient = new HttpClient()
+        { BaseAddress = new Uri("http://localhost:5184/") };
+    var client = new ProductsClient(httpClient);
     return await client.GetAsync(id);
 }
