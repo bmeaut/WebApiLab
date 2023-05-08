@@ -369,7 +369,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var template = `\r",
+									"const template = `\r",
 									"    <table bgcolor=\"#FFFFFF\">\r",
 									"        <tr>\r",
 									"            <th>Name</th>\r",
@@ -386,7 +386,7 @@
 									"        {{/each}}\r",
 									"    </table>\r",
 									"`;\r",
-									"var respJson = pm.response.json();\r",
+									"const respJson = pm.response.json();\r",
 									"pm.visualizer.set(template, {\r",
 									"    response: respJson\r",
 									"});\r",
@@ -454,7 +454,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var template = `\r",
+									"const template = `\r",
 									"    <table bgcolor=\"#FFFFFF\">\r",
 									"        <tr>\r",
 									"            <th>Name</th>\r",
@@ -471,7 +471,7 @@
 									"        {{/each}}\r",
 									"    </table>\r",
 									"`;\r",
-									"var respJson = pm.response.json();\r",
+									"const respJson = pm.response.json();\r",
 									"pm.visualizer.set(template, {\r",
 									"    response: respJson\r",
 									"});\r",
@@ -539,8 +539,8 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"var allProds= JSON.parse(pm.collectionVariables.get(\"u1_allprods\"));\r",
-									"var tejid=allProds.find(({ name }) => name.startsWith('Tej')).id;\r",
+									"const allProds= JSON.parse(pm.collectionVariables.get(\"u1_allprods\"));\r",
+									"const tejid=allProds.find(({ name }) => name.startsWith('Tej')).id;\r",
 									"pm.collectionVariables.set(\"u1_tejid\",tejid);"
 								],
 								"type": "text/javascript"
@@ -626,8 +626,8 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"var allProds= JSON.parse(pm.collectionVariables.get(\"u2_allprods\"));\r",
-									"var tejid=allProds.find(({ name }) => name.startsWith('Tej')).id;\r",
+									"const allProds= JSON.parse(pm.collectionVariables.get(\"u2_allprods\"));\r",
+									"const tejid=allProds.find(({ name }) => name.startsWith('Tej')).id;\r",
 									"pm.collectionVariables.set(\"u2_tejid\",tejid);"
 								],
 								"type": "text/javascript"
@@ -713,7 +713,7 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"var tej= JSON.parse(pm.collectionVariables.get(\"u1_tej\"));\r",
+									"const tej= JSON.parse(pm.collectionVariables.get(\"u1_tej\"));\r",
 									"tej.unitPrice++;\r",
 									"pm.collectionVariables.set(\"u1_tej_deluxe\",JSON.stringify(tej));"
 								],
@@ -811,7 +811,7 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"var tej= JSON.parse(pm.collectionVariables.get(\"u2_tej\"));\r",
+									"const tej= JSON.parse(pm.collectionVariables.get(\"u2_tej\"));\r",
 									"tej.name='Tej ' +new Date().getTime();\r",
 									"pm.collectionVariables.set(\"u2_tej_deluxe\",JSON.stringify(tej));"
 								],
@@ -909,7 +909,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var template = `\r",
+									"const template = `\r",
 									"    <table bgcolor=\"#FFFFFF\">\r",
 									"        <tr>\r",
 									"            <th>Name</th>\r",
@@ -926,7 +926,7 @@
 									"        {{/each}}\r",
 									"    </table>\r",
 									"`;\r",
-									"var respJson = pm.response.json();\r",
+									"const respJson = pm.response.json();\r",
 									"pm.visualizer.set(template, {\r",
 									"    response: respJson\r",
 									"});\r",
@@ -993,7 +993,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var template = `\r",
+									"const template = `\r",
 									"    <table bgcolor=\"#FFFFFF\">\r",
 									"        <tr>\r",
 									"            <th>Name</th>\r",
@@ -1010,7 +1010,7 @@
 									"        {{/each}}\r",
 									"    </table>\r",
 									"`;\r",
-									"var respJson = pm.response.json();\r",
+									"const respJson = pm.response.json();\r",
 									"pm.visualizer.set(template, {\r",
 									"    response: respJson\r",
 									"});\r",
