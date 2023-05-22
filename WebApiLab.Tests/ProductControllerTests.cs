@@ -24,14 +24,15 @@ namespace WebApiLab.Tests
         public ProductControllerTests(CustomWebApplicationFactory appFactory
             , ITestOutputHelper output)
         {
-            _appFactory = appFactory/*.WithWebHostBuilder(builder =>
-            {
-                builder.ConfigureLogging(logging =>
+            _appFactory = appFactory
+                .WithWebHostBuilder(builder =>
                 {
-                    logging.ClearProviders();
-                    logging.AddXUnit(output);
-                });
-            })*/; 
+                    builder.ConfigureLogging(logging =>
+                    {
+                        logging.ClearProviders();
+                        logging.AddXUnit(output);
+                    });
+                }); 
             _dtoFaker = new Faker<Product>()
                 .RuleFor(p => p.Id, 0)
                 .RuleFor(p => p.Name, f => f.Commerce.Product())
