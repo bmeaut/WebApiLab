@@ -6,7 +6,10 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using WebApiLab.Bll.Dtos;
 using System.Transactions;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Xunit.Abstractions;
 
 namespace WebApiLab.Tests
 {
@@ -16,9 +19,19 @@ namespace WebApiLab.Tests
         private readonly Faker<Product> _dtoFaker;
         private readonly WebApplicationFactory<Program> _appFactory;
         private readonly JsonSerializerOptions _serializerOptions;
-        public ProductControllerTests(CustomWebApplicationFactory appFactory)
+        private readonly ITestOutputHelper _testOutput;
+
+        public ProductControllerTests(CustomWebApplicationFactory appFactory
+            , ITestOutputHelper output)
         {
-            _appFactory = appFactory;
+            _appFactory = appFactory/*.WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddXUnit(output);
+                });
+            })*/; 
             _dtoFaker = new Faker<Product>()
                 .RuleFor(p => p.Id, 0)
                 .RuleFor(p => p.Name, f => f.Commerce.Product())
@@ -28,12 +41,15 @@ namespace WebApiLab.Tests
                 .RuleFor(p => p.CategoryId, 1)
                 .RuleFor(p => p.RowVersion, f => f.Random.Bytes(5));
             _serializerOptions = appFactory.SerializerOptions;
+            _testOutput = output;
+            output.WriteLine("ProductControllerTests ctor");
+
         }
 
         public class Post : ProductControllerTests
         {
-            public Post(CustomWebApplicationFactory appFactory)
-                : base(appFactory)
+            public Post(CustomWebApplicationFactory appFactory, ITestOutputHelper output)
+                : base(appFactory, output)
             {
                 
             }

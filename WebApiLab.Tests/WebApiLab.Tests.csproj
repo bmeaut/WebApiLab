@@ -22,6 +22,7 @@
     <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="FluentAssertions" Version="6.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.4" />
+    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.3.0" />
   </ItemGroup>
   <ItemGroup>
 	<ProjectReference Include="..\WebApiLab.Api\WebApiLab.Api.csproj" />
