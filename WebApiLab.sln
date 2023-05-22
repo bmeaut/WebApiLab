@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiLab.Bll", "WebApiLab.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiLab.Api", "WebApiLab.Api\WebApiLab.Api.csproj", "{0965DECC-8012-46A5-9224-383438269608}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiLab.Client", "WebApiLab.Client\WebApiLab.Client.csproj", "{A843F29F-9876-4BDA-B4C7-52867CE5A0C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiLab.Client", "WebApiLab.Client\WebApiLab.Client.csproj", "{A843F29F-9876-4BDA-B4C7-52867CE5A0C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiLab.Tests", "WebApiLab.Tests\WebApiLab.Tests.csproj", "{0D1CF2C2-31FB-418C-BB78-0D8AEE351C19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A843F29F-9876-4BDA-B4C7-52867CE5A0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A843F29F-9876-4BDA-B4C7-52867CE5A0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A843F29F-9876-4BDA-B4C7-52867CE5A0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1CF2C2-31FB-418C-BB78-0D8AEE351C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1CF2C2-31FB-418C-BB78-0D8AEE351C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1CF2C2-31FB-418C-BB78-0D8AEE351C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1CF2C2-31FB-418C-BB78-0D8AEE351C19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
